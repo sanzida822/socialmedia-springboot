@@ -1,10 +1,11 @@
 package com.example.socialmedia_springboot.mapper;
 
+import com.example.socialmedia_springboot.dto.FriendRequestDto;
+import com.example.socialmedia_springboot.model.FriendRequest;
+import com.example.socialmedia_springboot.model.User;
+import com.example.socialmedia_springboot.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.example.socialmediamvc.dto.FriendRequestDto;
-import org.example.socialmediamvc.model.FriendRequest;
-import org.example.socialmediamvc.model.User;
-import org.example.socialmediamvc.repository.UserRepository;
+
 import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor

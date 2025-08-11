@@ -1,13 +1,15 @@
 package com.example.socialmedia_springboot.mapper;
 
-import org.example.socialmediamvc.dto.RegistrationRequestDto;
-import org.example.socialmediamvc.dto.UserDto;
-import org.example.socialmediamvc.model.User;
-import org.example.socialmediamvc.utils.PasswordUtil;
+import com.example.socialmedia_springboot.dto.RegistrationRequestDto;
+import com.example.socialmedia_springboot.dto.UserDto;
+import com.example.socialmedia_springboot.model.User;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
-
+@RequiredArgsConstructor
 @Component
 public class UserMapper {
+    private final PasswordEncoder passwordEncoder;
 //    public User toEntity(RegistrationRequestDto registrationRequestDto, Image profileImage){
 //        return User.builder().username(registrationRequestDto.getUserName())
 //                .email(registrationRequestDto.getEmail()).password(PasswordUtil.HashPassword(registrationRequestDto.getPassword()))
@@ -19,7 +21,7 @@ public class UserMapper {
         return User.builder()
                 .username(registrationRequestDto.getUserName())
                 .email(registrationRequestDto.getEmail())
-                .password(PasswordUtil.HashPassword(registrationRequestDto.getPassword()))
+                .password(passwordEncoder.encode(registrationRequestDto.getPassword()))
                 .build();
     }
     public UserDto toDto(User user){

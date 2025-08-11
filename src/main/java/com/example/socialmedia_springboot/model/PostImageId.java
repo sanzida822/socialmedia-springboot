@@ -18,8 +18,8 @@ import java.io.Serializable;
 public class PostImageId implements Serializable {
 
     @Column(name = "post_id")
-    private Integer postId;
+    private Long postId;
 
     @Column(name = "image_id")
-    private Integer imageId;
+    private Long imageId;
 }

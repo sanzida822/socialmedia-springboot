@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FriendRequestDto {
-    Integer id;
+    Long id;
     private UserDto sender;
     private UserDto receiver;
     private FriendRequestStatus friendRequestStatus;

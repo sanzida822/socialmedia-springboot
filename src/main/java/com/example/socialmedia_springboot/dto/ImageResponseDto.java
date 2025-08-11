@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 
 public class ImageResponseDto {
-    private Integer id;
+    private Long id;
     private String fileName;
     private String contentType;
 //    private String base64Data;

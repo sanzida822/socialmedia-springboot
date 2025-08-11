@@ -1,12 +1,13 @@
 package com.example.socialmedia_springboot.mapper;
 
+import com.example.socialmedia_springboot.dto.ImageResponseDto;
+import com.example.socialmedia_springboot.dto.PostRequestDto;
+import com.example.socialmedia_springboot.dto.PostResponseDto;
+import com.example.socialmedia_springboot.model.Post;
+import com.example.socialmedia_springboot.model.PostImages;
+import com.example.socialmedia_springboot.model.User;
 import lombok.RequiredArgsConstructor;
-import org.example.socialmediamvc.dto.ImageResponseDto;
-import org.example.socialmediamvc.dto.PostRequestDto;
-import org.example.socialmediamvc.dto.PostResponseDto;
-import org.example.socialmediamvc.model.Post;
-import org.example.socialmediamvc.model.PostImages;
-import org.example.socialmediamvc.model.User;
+
 import org.springframework.stereotype.Component;
 
 import java.util.List;

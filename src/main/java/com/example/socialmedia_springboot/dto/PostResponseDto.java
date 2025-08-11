@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 
 public class PostResponseDto {
-    private Integer id;
+    private Long id;
     private String content;
     private UserDto user;
     private LocalDateTime createdAt;
