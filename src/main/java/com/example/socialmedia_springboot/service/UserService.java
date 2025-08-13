@@ -26,9 +26,7 @@ public class UserService {
     public UserDto findUserByEmail(String email) {
         return userRepository.findByEmail(email)
                 .map(userMapper::toDto)
-                .orElseThrow(null);
-    }
-
+                .orElseThrow(() -> new UserNotFoundException(Constants.ErrorMessage.USER_NOT_FOUND)); }
 
     public UserDto getUserById(long userId) {
         User user= userRepository.findById(userId).orElseThrow(()-> new UserNotFoundException(Constants.ErrorMessage.USER_NOT_FOUND));

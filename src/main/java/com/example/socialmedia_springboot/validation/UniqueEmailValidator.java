@@ -1,6 +1,8 @@
 package com.example.socialmedia_springboot.validation;
 
 import com.example.socialmedia_springboot.dto.UserDto;
+import com.example.socialmedia_springboot.exception.UserNotFoundException;
+import com.example.socialmedia_springboot.repository.UserRepository;
 import com.example.socialmedia_springboot.service.UserService;
 import com.example.socialmedia_springboot.utils.CommonUtil;
 import jakarta.validation.ConstraintValidator;
@@ -11,10 +13,11 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class UniqueEmailValidator implements ConstraintValidator<UniqueEmail, String> {
-    private final UserService userService;
+    private final UserRepository userRepository;
     public boolean isValid(String email, ConstraintValidatorContext context) {
-        UserDto userDto=new UserDto();
-        userDto=userService.findUserByEmail(email);
-        return CommonUtil.isNullOrEmpty(email) ||userDto==null;
+     if(CommonUtil.isNullOrEmpty(email)) {
+         return true;
+     }
+     return !userRepository.existsByEmail(email);
     }
 }
