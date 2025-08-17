@@ -1,11 +1,9 @@
 package com.example.socialmedia_springboot.mapper;
-
 import com.example.socialmedia_springboot.dto.FriendRequestDto;
 import com.example.socialmedia_springboot.model.FriendRequest;
 import com.example.socialmedia_springboot.model.User;
 import com.example.socialmedia_springboot.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-
 import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
@@ -18,7 +16,6 @@ private final UserMapper userMapper;
         return FriendRequest.builder().sender(sender)
                 .receiver(receiver)
                 .friendRequestStatus(friendRequestDto.getFriendRequestStatus()).build();
-
     }
 
     public FriendRequestDto toDto(FriendRequest friendRequest) {

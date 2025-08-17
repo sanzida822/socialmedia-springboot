@@ -43,8 +43,7 @@ public class AuthenticationController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@Valid @RequestBody LoginRequestDto request) {
-        try {
-            // 1. Authenticate user
+
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
                             request.getEmail(),
@@ -52,10 +51,7 @@ public class AuthenticationController {
                     )
             );
 
-            // 2. Store authentication in security context
             SecurityContextHolder.getContext().setAuthentication(authentication);
-
-            // 3. Get user details to return
             UserDto userDto = userService.findUserByEmail(request.getEmail());
 
 
@@ -65,12 +61,8 @@ public class AuthenticationController {
                     "email", userDto.getEmail()
 
             ));
-
-        } catch (BadCredentialsException e) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body(Map.of("error", "Invalid email or password"));
-        }
     }
+
 
 
 }
