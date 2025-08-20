@@ -17,6 +17,7 @@ public class Constants {
         public static final String INVALID_EMAIL_PASSWORD = "Invalid email or password";
         public static final String NO_SUGGESTIONS_AVAILABLE = "No suggestions available at the moment.";
         public static final String FRIEND_REQUEST_EXISTS = "This user is already registered.";
+        public static final String FRIEND_REQUEST_NOT_FOUND = "Friend Request Not Found.";
         public static final String USER_NOT_FOUND = "User not found.";
         public static final String REQUEST_NOT_FOUND = "Friend request not found";
         public static final String POST_CONTENT_OR_IMAGE_REQUIRED="Post must contain either text content or at least one image";

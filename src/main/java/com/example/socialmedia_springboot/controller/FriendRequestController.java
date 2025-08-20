@@ -43,7 +43,6 @@ public class FriendRequestController {
     public void cancelRequest(@AuthenticationPrincipal UserDetails userDetails, @PathVariable Long requestId) {
         UserDto sender = userService.findUserByEmail(userDetails.getUsername());
         friendRequestService.cancelFriendRequest(requestId);
-
     }
 
 }

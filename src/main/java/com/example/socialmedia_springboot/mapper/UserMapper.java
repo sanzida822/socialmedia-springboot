@@ -31,4 +31,11 @@ public class UserMapper {
                 .userCreated(user.getCreatedAt())
                 .userUpdated(user.getUpdatedAt()).build();
     }
+    public User toEntity(UserDto userDto){
+        return User.builder().id(userDto.getId())
+                .username(userDto.getUsername())
+                .email(userDto.getEmail())
+                .createdAt(userDto.getUserCreated())
+                .updatedAt(userDto.getUserUpdated()).build();
+    }
 }
