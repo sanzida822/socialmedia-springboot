@@ -6,6 +6,7 @@ import com.example.socialmedia_springboot.model.User;
 import com.example.socialmedia_springboot.service.FriendshipService;
 import com.example.socialmedia_springboot.service.UserService;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +16,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/v1/friends")
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class FriendshipController {
     private final FriendshipService friendshipService;
     private final UserService userService;
