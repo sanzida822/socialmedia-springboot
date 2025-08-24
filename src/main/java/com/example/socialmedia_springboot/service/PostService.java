@@ -1,6 +1,7 @@
 package com.example.socialmedia_springboot.service;
 
 import com.example.socialmedia_springboot.dto.PostRequestDto;
+import com.example.socialmedia_springboot.dto.PostResponseDto;
 import com.example.socialmedia_springboot.dto.UserDto;
 import com.example.socialmedia_springboot.mapper.ImageMapper;
 import com.example.socialmedia_springboot.mapper.PostMapper;
@@ -15,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @Service
 @Transactional
@@ -35,12 +37,18 @@ public class PostService {
                     Image image = imageMapper.toEntity(imageFile);
                     PostImages postImages = PostImages.builder().post(post).image(image).build();
                     post.getPostImages().add(postImages);
-
                 }
             }
-
         }
-
        return  postRepository.save(post);
+    }
+
+    public void deletePost(Long id) throws IOException {
+        postRepository.deleteById(id);
+    }
+
+    public List<PostResponseDto> getVisiblePost(UserDto userdto) throws IOException {
+        List<Post> posts = postRepository.findVisiblePosts(userMapper.toEntity(userdto));
+        return postMapper.toDtoList(posts);
     }
 }
